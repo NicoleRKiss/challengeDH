@@ -4,27 +4,32 @@ const sequelize = db.sequelize;
 
 // ESTO ES UN COPY PASTE - FALTA HACER CAMBIOS
 const indexController = {
-    index : function (req, res){
-        return res.render ('index');
-    },
-    list: function (req, res) {
-        db.Producto.findAll({
-            include: [{ association: "categorias" }]
+
+    index: function (req, res) {
+        db.Movies.findAll({
         })
+            .then(function(movies) {
 
-            .then(function (productos) {
-
-                // let productos =resultados[0];
-                res.render("index", { productos: productos,});
+                res.render("index", { movies: movies });
             })
     },
-    detail: function (req, res) {
-        db.Producto.findByPk(req.params.id)
-            .then(function (Producto) {
-                res.render("index", { Producto: Producto });
+    index: (req, res) => {
+        db.Movies.findAll({
+                //  include: ['category']
+                include: {
+                    all: true,
+                    nested: true
+                }
             })
-    }
+            .then(function (results) {
+                const MoviesAll = results;
+                return res.render("index", {
+                    data: MoviesAll
+                })
+            })
+            .catch(e => console.log(e))
 
+    },
 }
 
 

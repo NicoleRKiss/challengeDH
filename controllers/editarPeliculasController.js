@@ -5,14 +5,14 @@ const sequelize = db.sequelize;
 
 const editarPeliculasController = {
     edit: function (req, res) {
-        db.Producto.findByPk(req.params.id)
-        .then(function (Producto) {
-            res.render("editarPeliculas", { Producto: Producto })
+        db.Movies.findByPk(req.params.id)
+        .then(function (movies) {
+            res.render("editarPeliculas", { movies: movies })
         })
     },
 
     update: function (req, res) {
-        db.Producto.update({
+        db.Movies.update({
             nombre: req.body.nombre,
             descripcion: req.body.descripcion,
             planId: req.body.planId,
