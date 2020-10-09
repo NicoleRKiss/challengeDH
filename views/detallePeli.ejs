@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle de Pelicula</title>
+    <style>
+        body {
+            font-family: courier, serif;
+        }
+    </style>
+</head>
+<body>
+    <h1> DETALLE DE PELICULA</h1>
+        <lu>   
+            <label><b>Nombre de la Pelicula</b></label>
+            <li><%=Movies.title%></li> 
+            <br>
+            <label><b>Rating</b></label>
+            <li><%=Movies.rating%></li>
+            <br>
+            <label><b>Cantidad de Premios</b></label>
+            <li><%=Movies.awards%></li>
+            <br>
+            <label><b>Fecha de Estreno</b></label>
+            <li><%=Movies.releaseDate%></li>
+            <br>
+            <label><b>Duracion</b></label>
+            <li><%=Movies.length%> minutos</li>
+            <br>
+            <label><b>Genero</b></label>
+            <li><%=Genres.name%></li>
+            <br>
+        </lu>   
+
+        <%- include('partials/admin') %>
+        
+</body>
+</html>

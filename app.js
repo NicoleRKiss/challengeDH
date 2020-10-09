@@ -19,6 +19,10 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(cors());
 
+app.listen(3000, function (){
+    console.log ('hola 3000');
+})
+
 
 app.use('/', indexRouter);
 app.use('/register', registerRouter);

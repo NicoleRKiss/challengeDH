@@ -1,22 +1,23 @@
 let db = require('../database/models');
 const sequelize = db.sequelize;
 
-const crudPeliculasController = {
+const crudController = {
     add: function (req, res) {
             res.render("crudPeliculas")
       },
-      create: function (req, res) {
-            db.Producto.create({
-              nombre: req.body.nombre,
-              descripcion: req.body.descripcion,
-              planId: req.body.planId,
-              idiomaId:req.body.idiomaId,
-              precio: req.body.precio,
-              categoriaId:req.body.categoriaId,
-              profesorId:req.body.profesorId
+    create: function (req, res) {
+          db.Movies.create({
+              title: req.body.title,
+              rating: req.body.rating,
+              awards: req.body.awards,
+              length:req.body.length,
+              releaseDate: req.body.releaseDate,
+              genre_id:req.body.genre_id,
           });
         res.redirect('/');
-      }
+      },
+      
      
 }
-module.exports = crudPeliculasController;
+module.exports = crudController;
+

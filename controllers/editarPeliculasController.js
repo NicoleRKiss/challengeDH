@@ -10,16 +10,15 @@ const editarPeliculasController = {
             res.render("editarPeliculas", { movies: movies })
         })
     },
-
+// MODIFICAR ESTO 
     update: function (req, res) {
         db.Movies.update({
-            nombre: req.body.nombre,
-            descripcion: req.body.descripcion,
-            planId: req.body.planId,
-            idiomaId: req.body.idiomaId,
-            precio: req.body.precio,
-            categoriaId: req.body.categoriaId,
-            profesorId: req.body.profesorId
+            title: req.body.title,
+            rating: req.body.rating,
+            awards: req.body.awards,
+            length:req.body.length,
+            releaseDate: req.body.releaseDate,
+            //genre_id:req.body.genre_id,
         }, {
             where: {
                 id: req.params.id

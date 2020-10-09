@@ -1,5 +1,5 @@
-const json = require("../models");
-const User = json("users");
+//const json = require("../models");
+//const User = json("users");
 
 const db = require('../database/models');
 
@@ -18,7 +18,7 @@ const loginController ={
     
         if(errors.isEmpty()){
          
-          db.Usuario.findOne({
+          db.Users.findOne({
             where:{email: req.body.Email}
           })
           .then(function(user){

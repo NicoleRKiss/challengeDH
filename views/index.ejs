@@ -9,6 +9,17 @@
     <%- include('partials/header') %>
     <h1>HOME PAGE - PELICULAS DE NICKY</h1>
 
+    <h2>Listado de Peliculas</h2>
+
+    <ul>
+        <% for (let i = 0; i < movies.length; i++) {%>
+            <li>
+            <a href="/detallePeli/<%=movies[i].id%>"> <%=movies[i].title %> </a>
+
+            </li> 
+        <% } %>  
+    </ul>
+
     
 </body>
 </html>

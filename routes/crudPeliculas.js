@@ -1,6 +1,11 @@
 var express = require('express');
 var router = express.Router();
-let crudController = require ('../controllers/crudPeliculasController');
+let crudPeliculasController = require ('../controllers/crudPeliculasController');
+
+router.get('/', crudPeliculasController.add);
+router.post('/update', crudPeliculasController.create);
+
+
 
 
 module.exports = router; 

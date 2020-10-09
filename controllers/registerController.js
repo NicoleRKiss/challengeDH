@@ -21,7 +21,7 @@ const registerController ={
            if(errors.isEmpty()){
            delete req.body.retypePassword;
            req.body.password = bcryptjs.hashSync(req.body.password, 10);
-           db.Users.create( {
+            db.Users.create( {
             email: req.body.email,
             password: req.body.password,
             rol:req.body.rol,
