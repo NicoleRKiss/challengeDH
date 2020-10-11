@@ -2,23 +2,13 @@ let db = require('../database/models');
 
 const movieController = {
     detail: function (req, res) {
-        db.Genres.findAll()
-            .then((Genres) => {
-                db.Movies.findByPk(req.params.id)
-                    .then(function (Movies) {
-                        // db.Actors.findAll()
-                        //     .then((Actors) => {
-
-                        return res.render('detallePeli', {
-                            Movies: Movies,
-                            Genres,
-                            // Actors
-                        });
-                        // })
-                        // .catch(e => console.log(e));
-                    })
-                    .catch(e => console.log(e));
+        db.Movie.findByPk(req.params.id, {
+            include: { association : "genre"}
+        })
+            .then((movie) => {
+                return res.render('detallePeli', { movie });
             })
+            .catch(e => console.log(e));
     },
     add: function (req, res) {
         res.render("crudPeliculas")

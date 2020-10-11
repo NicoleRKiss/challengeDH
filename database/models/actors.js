@@ -1,13 +1,26 @@
 'use strict';
-module.exports = (sequelize, DataTypes) => {
-  const Actors = sequelize.define('Actor', {
-    first_name: DataTypes.STRING,
-    last_name: DataTypes.STRING,
-    rating: DataTypes.DECIMAL,
-    favorite_movie_id: DataTypes.INTEGER
-  }, {});
-  Actors.associate = function(models) {
+module.exports = (sequelize, dataTypes) => {
+  let alias = 'Actor';
+
+  let cols = {
+    id: {
+      type: dataTypes.INTEGER,
+      primaryKey: true,
+      autoIncrement: true,
+    },
+    first_name: dataTypes.STRING,
+    last_name: dataTypes.STRING,
+    rating: dataTypes.DECIMAL,
+    favorite_movie_id: dataTypes.INTEGER
+  }
+
+  let config = {}
+
+  const actor = sequelize.define(alias, cols, config);
+  
+  actor.associate = function(models) {
     // associations can be defined here
   };
-  return Actors;
+
+  return actor;
 };

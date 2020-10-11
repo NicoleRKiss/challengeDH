@@ -22,8 +22,10 @@ module.exports = (sequelize, dataTypes) => {
 
     }
 
-    const users = sequelize.define(alias, cols);
+    let config = {}
 
-    return users
+    const user = sequelize.define(alias, cols, config);
+
+    return user
 
 }

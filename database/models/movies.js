@@ -1,15 +1,32 @@
 'use strict';
-module.exports = (sequelize, DataTypes) => {
-  const Movies = sequelize.define('Movie', {
-    title: DataTypes.STRING,
-    rating: DataTypes.DECIMAL,
-    awards: DataTypes.INTEGER,
-    releaseDate: DataTypes.DATE,
-    length: DataTypes.INTEGER,
-    genre_id: DataTypes.INTEGER
-  }, {});
-  Movies.associate = function(models) {
-    // associations can be defined here
+module.exports = (sequelize, dataTypes) => {
+
+  let alias = "Movie";
+
+  let cols = {
+    id: {
+      type: dataTypes.INTEGER,
+      primaryKey: true,
+      autoIncrement: true,
+    },
+    title: dataTypes.STRING,
+    rating: dataTypes.DECIMAL,
+    awards: dataTypes.INTEGER,
+    releaseDate: dataTypes.DATE,
+    length: dataTypes.INTEGER,
+    genre_id: dataTypes.INTEGER
+  }
+
+  let config = {};
+
+  const movie = sequelize.define(alias, cols, config);
+  
+  movie.associate = function(models) {
+    movie.belongsTo(models.Genre, {
+      as: 'genre',
+      foreignKey: 'genre_id'
+    })
+    
   };
-  return Movies;
+  return movie;
 };

@@ -29,8 +29,10 @@ module.exports = (sequelize, dataTypes) => {
 
     }
 
-    const seasons = sequelize.define(alias, cols);
+    let config = {}
 
-    return seasons
+    const season = sequelize.define(alias, cols, config);
+
+    return season
 
 }

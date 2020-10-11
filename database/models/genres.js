@@ -17,18 +17,18 @@ module.exports = (sequelize, dataTypes) => {
 
   }
 
-  const config = {
-    tableName: 'genres'
-}
+  const config = {}
 
-  const Genres = sequelize.define(alias, cols, config);
-  // Genres.associate = function(models) {
-  //   // associations can be defined here
-  //     Genres.hasMany(models.Movies, {
-  //         as: 'Movies',
-  //         foreignKey: 'genre_id'
-  //     })
-  // }
-  return Genres;
+  const genre = sequelize.define(alias, cols, config);
+
+  genre.associate = function(models) {
+    // associations can be defined here
+      genre.hasMany(models.Movie, {
+          as: 'movies',
+          foreignKey: 'genre_id'
+      })
+  }
+
+  return genre;
 
 }
