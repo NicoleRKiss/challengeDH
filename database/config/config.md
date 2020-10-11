@@ -1,3 +1,5 @@
+//Eliminar el comentario de esta línea. Renombrar el archivo como config.js y cambiar las configuraciones de conexión según los datos de tu máquina.
+
 module.exports = {
   "development": {
     "username": "root",

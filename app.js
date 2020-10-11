@@ -1,8 +1,8 @@
 const express = require('express');
 const app = express();
-const session = require("express-session"); 
+const session = require("express-session");
 const cors = require('cors');
-var cookieParser = require('cookie-parser'); 
+var cookieParser = require('cookie-parser');
 
 var indexRouter = require('./routes/index');
 var registerRouter = require('./routes/register');
