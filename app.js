@@ -7,9 +7,7 @@ var cookieParser = require('cookie-parser');
 var indexRouter = require('./routes/index');
 var registerRouter = require('./routes/register');
 var loginRouter = require('./routes/login');
-var detallePeliRouter = require('./routes/detallePeli');
-var crudPeliculasRouter = require('./routes/crudPeliculas');
-var editarPeliculasRouter = require('./routes/editarPeliculas');
+var movieRouter = require('./routes/movie');
 
 app.set('view engine', 'ejs');
 app.use(express.static(__dirname + '/public')); 
@@ -27,9 +25,7 @@ app.listen(3000, function (){
 app.use('/', indexRouter);
 app.use('/register', registerRouter);
 app.use('/login', loginRouter);
-app.use('/detallePeli', detallePeliRouter);
-app.use('/crudPeliculas', crudPeliculasRouter);
-app.use('/editarPeliculas', editarPeliculasRouter);
+app.use('/movie', movieRouter);
 
 
 module.exports = app;
