@@ -10,14 +10,14 @@ const db = require('../database/models');
 const { nextTick } = require('process');
 // const {User}= require('../database/models');
 module.exports = {
-  register: 
-    [
-      body('Email').isEmail()
+  register: [
+    body('email')
+      .isEmail()
       .withMessage('Debes ingresar un email válido')
       .bail()
       .custom((value, { req }) => {
         return db.Users.findOne({
-          where:{email: req.body.Email}
+          where:{email: req.body.email}
         })
         .then(function(user){
           if(user){
@@ -25,12 +25,12 @@ module.exports = {
           }
         })
        }),
-      body('password').notEmpty().withMessage('La contraseña debe tener 8 caracteres')
-      .bail()
-      
+    body('password')
+      .notEmpty()
+      .withMessage('La contraseña debe tener 8 caracteres')
     ],
   login: [
-    body("Email")
+    body("email")
       .notEmpty()
       .withMessage("Campo obligatorio")
       .bail()

@@ -26,6 +26,6 @@ module.exports = (sequelize, dataTypes) => {
 
     const user = sequelize.define(alias, cols, config);
 
-    return user
+    return user;
 
 }
