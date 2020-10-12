@@ -11,10 +11,14 @@ const movieController = {
             .catch(e => console.log(e));
     },
     add: function (req, res) {
-        res.render("crudPeliculas")
+        db.Genre.findAll().
+        then( function(genres){
+            return res.render("crudPeliculas", { genres })
+        })
+        .catch(e => console.log(e));
     },
     create: function (req, res) {
-        db.Movies.create({
+        db.Movie.create({
             title: req.body.title,
             rating: req.body.rating,
             awards: req.body.awards,
@@ -22,17 +26,17 @@ const movieController = {
             releaseDate: req.body.releaseDate,
             genre_id: req.body.genre_id,
         });
-        res.redirect('/');
+        return res.redirect('/');
     },
     edit: function (req, res) {
-        db.Movies.findByPk(req.params.id)
+        db.Movie.findByPk(req.params.id)
             .then(function (movies) {
                 res.render("editarPeliculas", { movies: movies })
             })
     },
     // MODIFICAR ESTO 
     update: function (req, res) {
-        db.Movies.update({
+        db.Movie.update({
             title: req.body.title,
             rating: req.body.rating,
             awards: req.body.awards,
@@ -47,7 +51,7 @@ const movieController = {
         res.redirect("/");
     },
     delete: (req, res) => {
-        db.Movies.destroy({
+        db.Movie.destroy({
             where: {
                 id: req.params.id
             }

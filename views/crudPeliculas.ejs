@@ -17,7 +17,7 @@
     <%- include('partials/header') %>
     
     <div class="container">
-    <form action="/crudPeliculas/update" method="POST">
+    <form action="/movie/create" method="POST">
         <h1 class="text-center">CREAR PELICULA</h1>
         <div class="form-group row text-center">
             <label for="nombre" class="col-sm-2 col-form-label col-form-label-sm">Title - Titulo</label>
@@ -63,8 +63,11 @@
         <div class="form-group row text-center">
             <label for="categoriaId" class="col-sm-2 col-form-label col-form-label-sm">Genre - Genero</label>
             <div class="col-sm-6">
-                <input type="number" name="genre_id" id="genre_id" class="form-control form-control-lg"
-                    placeholder="" value="">
+                <select class="form-control form-control-lg" name="genre_id" id="genre_id">
+                    <% for(let i=0; i<genres.length; i++) {%> 
+                        <option value="<%= genres[i].id %> "><%= genres[i].name %> </option>
+                    <% } %> 
+                </select>
             </div>
         </div>
         <br>
