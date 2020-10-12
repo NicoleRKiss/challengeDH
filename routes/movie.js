@@ -8,7 +8,7 @@ router.get('/create', movieController.add); //Para form de creación
 router.post('/create', movieController.create); //Guarda la película nueva.
 
 router.get('/edit/:id', movieController.edit); //Para form de edición.
-router.post('/edit', movieController.update); //Guarda la película editada.
+router.post('/edit/:id', movieController.update); //Guarda la película editada.
 
 router.post('/delete/:id', movieController.delete); //Borra la plicula.
 
