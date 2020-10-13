@@ -18,8 +18,8 @@ const loginController ={
     
         if(errors.isEmpty()){
          
-          db.Users.findOne({
-            where:{email: req.body.Email}
+          db.User.findOne({
+            where:{email: req.body.email}
           })
           .then(function(user){
             req.session.user = user;

@@ -21,24 +21,18 @@
        
         <div>
             <label for="Email" class="form-label"></label>
-            <input type="Email" id="Email" name="Email" placeholder="Ej: @gmail.com" class="form-input" value="">
-            <br>
-            <p class="errors">
-                <% if (typeof errors != 'undefined' ) { %>
-                    <% if (errors.Email) { %>
-                    <%= errors.Email.msg %>
-                <% } %>
-            <% } %>
-            </p>
+            <input type="Email" id="Email" name="email" placeholder="Ej: @gmail.com" class="form-input" value="">
         </div>
         <div>
             <label for="password" class="form-label"></label>
             <input type="password" id="password" name="password" placeholder="Ej:1234" class="form-input" value="">
             <p class="errors">
                 <% if (typeof errors != 'undefined' ) { %>
-                    <%=  errors.password ? errors.password.msg : '' %>
+                    <% if (errors.email) { %>
+                        <%= errors.email.msg %>
+                    <% } %>
                 <% } %>
-            </p>
+            </p>            
         </div>
         
         <p class="olvide text-center">Olvidé mi contraseña</p>

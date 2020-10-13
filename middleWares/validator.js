@@ -1,5 +1,6 @@
 const { body } = require('express-validator');
 const db = require('../database/models');
+const bcrypt = require('bcryptjs')
 
 module.exports = {
   register: [
@@ -24,23 +25,23 @@ module.exports = {
   login: [
     body("email")
       .notEmpty()
-      .withMessage("Campo obligatorio")
+      .withMessage("email y password son obligatorio")
       .bail()
       .custom((value, { req }) => {
-       return db.User.findOne({
-         where:{email: value}
-       })
-       .then(function(user){
-         if(user){
-          if(bcrypt.compareSync(req.body.password,user.password)==false){
-            return Promise.reject('email o password invalidos');
-          }
-         }else{
-          return Promise.reject('email o password invalidos');
-         }
-       })
+        return db.User.findOne({
+          where: { email: value }
+        })
+          .then(function (user) {
+            if (user) {
+              if (bcrypt.compareSync(req.body.password, user.password) == false) {
+                return Promise.reject('email o password invalidos');
+              }
+            } else {
+              return Promise.reject('email o password invalidos');
+            }
+          })
       })
-      
+    
   ],
 };
 
