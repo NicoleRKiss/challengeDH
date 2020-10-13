@@ -1,8 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const registerController = require('../controllers/registerController')
-const path = require('path');
-const { check } = require('express-validator');
+const registerController = require('../controllers/registerController');
 const guestMiddleware = require('../middleWares/guestMiddleware');
 const validator = require('../middleWares/validator');
 

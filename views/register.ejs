@@ -18,8 +18,8 @@
                 <input type="text" id="email" name="email" placeholder="Ej: @gmail.com" class="form-input" value="">
                 <p class="errors">
                     <% if (typeof errors != 'undefined' ) { %>
-                            <% if (errors.Email) { %>
-                            <%= errors.Email.msg %>
+                            <% if (errors.email) { %>
+                            <%= errors.email.msg %>
                         <% } %>
                     <% } %>
                 </p>

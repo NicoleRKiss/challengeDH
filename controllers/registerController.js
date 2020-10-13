@@ -1,9 +1,6 @@
-const fs = require('fs');
-const path = require('path');
-const { stringify } = require('querystring');
 const { validationResult }= require('express-validator');
 const bcryptjs = require ('bcryptjs');
-const { check } = require('express-validator');
+
 
 let db = require('../database/models');
 
@@ -13,7 +10,7 @@ const registerController ={
 
     },
     create: function(req, res){  
-        let errors = validationResult(req);    
+        let errors = validationResult(req);  
     
         if (errors.isEmpty()){
             delete req.body.retypePassword;

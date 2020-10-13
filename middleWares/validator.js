@@ -1,14 +1,6 @@
 const { body } = require('express-validator');
-const path = require('path');
-const bcrypt = require('bcryptjs');
-
-// Middlewares propios
-
-//const json = require('../models');
-//const User = json('users');
 const db = require('../database/models');
-const { nextTick } = require('process');
-// const {User}= require('../database/models');
+
 module.exports = {
   register: [
     body('email')
@@ -16,7 +8,7 @@ module.exports = {
       .withMessage('Debes ingresar un email válido')
       .bail()
       .custom((value, { req }) => {
-        return db.Users.findOne({
+        return db.User.findOne({
           where:{email: req.body.email}
         })
         .then(function(user){
@@ -27,7 +19,7 @@ module.exports = {
        }),
     body('password')
       .notEmpty()
-      .withMessage('La contraseña debe tener 8 caracteres')
+      .withMessage('La contraseña es obligatoria')
     ],
   login: [
     body("email")
@@ -35,7 +27,7 @@ module.exports = {
       .withMessage("Campo obligatorio")
       .bail()
       .custom((value, { req }) => {
-       return db.Users.findOne({
+       return db.User.findOne({
          where:{email: value}
        })
        .then(function(user){
