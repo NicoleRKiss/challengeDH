@@ -23,6 +23,7 @@ const loginController ={
           })
           .then(function(user){
             req.session.user = user;
+          
     
           if (req.body.remember) {
             res.cookie('email', user.Email, { maxAge: 1000 * 60 * 60 * 24 });
@@ -31,10 +32,16 @@ const loginController ={
           return res.redirect('/');
           })
           
+          .catch(function(error){
+            console.log(error);
+          })
+
+          
         } else {
          
           return res.render("login", { errors: errors.mapped()});
         }
+    
     },
     logout: function(req, res) {
         req.session.paranoid();

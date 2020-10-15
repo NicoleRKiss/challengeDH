@@ -26,13 +26,6 @@ const registerController ={
             password: req.body.password,
             rol:req.body.rol,
            })
-
-        //    let users = fs.readFileSync(path.join(__dirname,'..', 'data', 'users.json'), 'utf-8');
-        //     users= JSON.parse(users);
-        //    users= [...users, user];
-        //    users= JSON.stringify(users, null, ' ');
-
-        //    fs.writeFileSync(path.join(__dirname,'..', 'data', 'users.json'), users);
            
            return res.redirect('/');
 

@@ -1,6 +1,6 @@
 module.exports = (sequelize, dataTypes) => {
 
-  let alias = "Genres";
+  let alias = "Genre";
   let cols = {
       id: {
           type: dataTypes.INTEGER,
@@ -18,17 +18,21 @@ module.exports = (sequelize, dataTypes) => {
   }
 
   const config = {
-    tableName: 'genres'
-}
+    tableName: 'genres',
+    define : {
+        timestamps: true,
+        paranoid: true,
+    }
+  }
 
-  const Genres = sequelize.define(alias, cols, config);
-  Genres.associate = function(models) {
+  const Genre = sequelize.define(alias, cols, config);
+  Genre.associate = function(models) {
     // associations can be defined here
-      Genres.hasMany(models.Movies, {
-          as: 'Movies',
+      Genre.hasMany(models.Movie, {
+          as: 'Movie',
           foreignKey: 'genre_id'
       })
   }
-  return Genres;
+  return Genre;
 
 }

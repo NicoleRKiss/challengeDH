@@ -1,6 +1,6 @@
 module.exports = (sequelize, dataTypes) => {
 
-    let alias = "Seasons";
+    let alias = "Season";
     let cols = {
         id: {
             type: dataTypes.INTEGER,
@@ -29,8 +29,15 @@ module.exports = (sequelize, dataTypes) => {
 
     }
 
-    const seasons = sequelize.define(alias, cols);
+    const config = {
+        define : {
+            timestamps: true,
+            paranoid: true,
+        }
+      }
 
-    return seasons
+    const season = sequelize.define(alias, cols, config);
+
+    return season
 
 }

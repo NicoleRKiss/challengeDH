@@ -5,14 +5,17 @@ const sequelize = db.sequelize;
 
 const editarPeliculasController = {
     edit: function (req, res) {
-        db.Movies.findByPk(req.params.id)
-        .then(function (movies) {
-            res.render("editarPeliculas", { movies: movies })
+        db.Movie.findByPk(req.params.id)
+        .then(function (movie) {
+            res.render("editarPeliculas", { movie: movie })
+        })
+        .catch(function(error){
+            console.log(error);
         })
     },
 // MODIFICAR ESTO 
     update: function (req, res) {
-        db.Movies.update({
+        db.Movie.update({
             title: req.body.title,
             rating: req.body.rating,
             awards: req.body.awards,

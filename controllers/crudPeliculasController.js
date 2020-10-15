@@ -6,7 +6,7 @@ const crudController = {
             res.render("crudPeliculas")
       },
     create: function (req, res) {
-          db.Movies.create({
+          db.Movie.create({
               title: req.body.title,
               rating: req.body.rating,
               awards: req.body.awards,

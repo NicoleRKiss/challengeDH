@@ -1,6 +1,6 @@
 module.exports = (sequelize, dataTypes) => {
 
-    let alias = "Episodes";
+    let alias = "Episode";
     let cols = {
         id: {
             type: dataTypes.INTEGER,
@@ -29,8 +29,15 @@ module.exports = (sequelize, dataTypes) => {
 
     }
 
-    const episodes = sequelize.define(alias, cols);
+    const config = {
+        define : {
+            timestamps: true,
+            paranoid: true,
+        }
+      }
 
-    return episodes
+    const episode = sequelize.define(alias, cols, config);
+
+    return episode
 
 }
