@@ -6,7 +6,6 @@ var cookieParser = require('cookie-parser');
 
 var indexRouter = require('./routes/index');
 var registerRouter = require('./routes/register');
-var loginRouter = require('./routes/login');
 var detallePeliRouter = require('./routes/detallePeli');
 var crudPeliculasRouter = require('./routes/crudPeliculas');
 var editarPeliculasRouter = require('./routes/editarPeliculas');
