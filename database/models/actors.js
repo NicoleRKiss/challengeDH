@@ -8,18 +8,16 @@ module.exports = (sequelize, dataTypes) => {
         primaryKey: true,
         autoIncrement: true,
       },
-      first_name: {
+      firstName: {
         type: dataTypes.STRING,
       },
-      last_name: {
+      lastName: {
         type: dataTypes.STRING,
       },
       rating: {
         type: dataTypes.DECIMAL,
       },
-      first_name: {
-        type: dataTypes.STRING,
-      },
+    
       favorite_movie_id: {
         type: dataTypes.INTEGER
       }
@@ -34,7 +32,13 @@ module.exports = (sequelize, dataTypes) => {
   
   const Actor = sequelize.define(alias, cols, config);
     Actor.associate = function(models) {
-    // associations can be defined here
+     Actor.belongsToMany(models.Movie, {
+        as: 'peliculas',
+        through: "actor_movie",
+        foreignKey: 'actor_id',
+        otherKey: "movie_id",
+        timestamps: false
+     })
     };
     return Actor;
 }

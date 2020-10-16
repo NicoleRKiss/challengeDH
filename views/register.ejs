@@ -1,56 +1,56 @@
 <!DOCTYPE html>
-<html class="html">
+<html lang="en">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="/css/estilos.css">
-        <title>Registro para Administradores</title>
+<body>
+    <!-- Header -->
+    <div class="encierro">
+        <div class="loginContainer row no-wrap">
+            <main class="login-publi row no-wrap">
+                <div class="loginCompleto">
 
-    </head>
-<body class= "body1">
-    <div class="container-fluid">
-        <form action="/register" method="POST" enctype="multipart/form-data">
-        <div class="register">
-            <h1 class="regist">Crear Cuenta</h1>
-            
-                <label for="Email" class="form-label"></label>
-                <input type="text" id="Email" name="Email" placeholder="Ej: @gmail.com" class="form-input">
-                <p class="errors">
-                    <% if (typeof errors != 'undefined' ) { %>
-                            <% if (errors.Email) { %>
-                            <%= errors.Email.msg %>
-                        <% } %>
-                    <% } %>
-                </p>
-            
-                <label for="password" class="form-label"></label>
-                <input type="password" id="password" name="password" placeholder="Password" class="form-input" value="" pattern="(?=.*[A-Z]).{8,}">
-                <p class="errors">
-                    <% if (typeof errors != 'undefined' ) { %>
-                        <%=  errors.password ? errors.password.msg : '' %>
-                    <% } %>
-                </p>
-            
-                <label for="password" class="form-label"></label>
-                <input type="password" id="password" name="retypePassword" placeholder="Repetir contraseña" class="form-input" Value="">
-            
-                <p class="minimo">Mínimo 8 caracteres, una letra y un número.</p>
 
-                <label for="rol" class="form-label"></label>
-                <input type="text" id="rol" name="rol" placeholder="Rol" class="form-input" Value="">
-                <br>
-                <br>
+                    <div class="form-container">
+                        <div class="loginTitulo">REGISTER</div>
+                        <form class="loginForm" action="/register" method="POST" autocomplete="off">
 
-            <input type="submit" id="Crear cuenta" name="" placeholder="" class="form-Cuenta" value="CREAR CUENTA">
-            
-            </article>
-                <br>
-                <article class="pieRegistro">
-                <p class="pieRegistro"><a class="pieRegistro" href ='login'>Si YA TENES CUENTA HACE CLICK ACÁ</a></p>
-             </article>
-            </div>
-        </form>
+                            <div class="field-group">
+                                <div class="email">
+                                    <input class="emailInput" type="email" id="email" name="email" placeholder="Email"
+                                        autocomplete="off" value="" required>
+                                    <p class="error">
+                                        <%= typeof errors == 'undefined' ? null : errors.email ? errors.email.msg : null %>
+                                    </p>
+                                </div>
+                                <div class="password">
+                                    <input class="passwordInput" type="password" id="passsword" name="password"
+                                        autocomplete="off" placeholder="Contraseña" value="" required>
+                                    <p class="error">
+                                        <%= typeof errors == 'undefined' ? null : errors.password ? errors.password.msg : null %>
+                                    </p>
+                                </div>
+                                <div class="password">
+                                    <input class="passwordInput" type="password" id="retype" name="retype"
+                                        placeholder="Repetir contraseña" value="">
+                                    <p class="error" required>
+                                        <%= typeof errors == 'undefined' ? null : errors.retype ? errors.retype.msg : null %>
+                                    </p>
+
+                                </div>
+
+                                <button type="submit">Registrarse</button>
+                            </div>
+                        </form>
+
+                    </div>
+
+                </div>
+
+            </main>
+        </div>
     </div>
+
+
+
 </body>
+
 </html>

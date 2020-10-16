@@ -14,11 +14,14 @@ module.exports = (sequelize, dataTypes) => {
         password: {
             type: dataTypes.STRING,
         },
+        deletedAt: {
+            type: dataTypes.STRING,
+        },
 
         rol: {
             type: dataTypes.INTEGER,
-            
-        }  
+        }
+        
 
     }
 

@@ -1,16 +1,17 @@
 const express = require('express');
 const router = express.Router();
-const registerController = require('../controllers/registerController')
-const path = require('path');
-const { check } = require('express-validator');
-const guestMiddleware = require('../middleWares/guestMiddleware');
-const validator = require('../middleWares/validator');
+const path = require("path");
+
+const registerController = require('../controllers/registerController');
+
+const validator = require('../middlewares/validator');
 
 
-
-/* GET users listing. */
-router.get('/',guestMiddleware,registerController.index);
-router.post('/',validator.register, registerController.create);
+router.get('/', registerController.register);
+router.post("/", validator.register, registerController.processRegister);
+router.get("/login", registerController.login);
+router.post("/login", validator.login, registerController.processLogin);
+router.post('/logout', registerController.logout);
 
 
 module.exports = router;

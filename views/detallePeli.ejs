@@ -13,28 +13,45 @@
 </head>
 <body>
     <h1> DETALLE DE PELICULA</h1>
-        <lu>   
+        <ul>   
             <label><b>Nombre de la Pelicula</b></label>
-            <li><%=Movies.title%></li> 
+            <li><%=Movie.title%></li> 
             <br>
             <label><b>Rating</b></label>
-            <li><%=Movies.rating%></li>
+            <li><%=Movie.rating%></li>
             <br>
             <label><b>Cantidad de Premios</b></label>
-            <li><%=Movies.awards%></li>
+            <li><%=Movie.awards%></li>
             <br>
             <label><b>Fecha de Estreno</b></label>
-            <li><%=Movies.releaseDate%></li>
+            <li><%=Movie.releaseDate%></li>
             <br>
             <label><b>Duracion</b></label>
-            <li><%=Movies.length%> minutos</li>
+            <li><%=Movie.length%> minutos</li>
             <br>
             <label><b>Genero</b></label>
-            <li><%=Genres.name%></li>
+            <li><%=Movie.generos.name%></li>
             <br>
-        </lu>   
+            <label><b>Actores</b></label>
+            <ul>
+                <% for (let i = 0; i < Movie.actores.length; i++) { %>
+                    <li>
+                        <%= Movie.actores[i].firstName %> <%= Movie.actores[i].lastName %>
+                    </li>
+                   
+                    <% } %>
+            </ul>
+        </ul>   
 
-        <%- include('partials/admin') %>
+
+
+        <div class="log">
+            <% if(typeof user !== 'undefined' && user.rol === 1) { %>
+                <%- include('partials/admin') %>
+            <% } else { %>
+                 <a href="/">Home</a>
+            <% } %>
+        </div>
         
 </body>
 </html>

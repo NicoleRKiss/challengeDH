@@ -15,12 +15,12 @@
     <%- include('partials/header')%>
     
     <div class="container">
-    <form action="/editarPeliculas/edit/<%=movies.id%>" method="POST">
+    <form action="/editarPeliculas/edit/<%=movie.id%>" method="POST">
         <h1 class="text-center">EDITAR PELICULAS</h1>
         <div class="form-group row text-center">
             <label for="nombre" class="col-sm-2 col-form-label col-form-label-sm">Title - Titulo</label>
             <div class="col-sm-10">
-                <input type="text" name="nombre" class="form-control form-control-sm" id="colFormLabelSm" placeholder="" value="<%=movies.title%>">
+                <input type="text" name="nombre" class="form-control form-control-sm" id="colFormLabelSm" placeholder="" value="<%=movie.title%>">
             </div>
             <br>
         </div>
@@ -28,35 +28,31 @@
         <div class="form-group row text-center">
             <label for="colFormLabel" class="col-sm-2 col-form-label">Rating</label>
             <div class="col-sm-10">
-                <input type="number" name="rating" class="form-control" id="colFormLabel" placeholder=" " value="<%=movies.rating%>">
+                <input type="number" name="rating" class="form-control" id="colFormLabel" placeholder=" " value="<%=movie.rating%>">
             </div>
             <br>
         </div>
         <div class="form-group row text-center">
             <label for="planId" class="col-sm-2 col-form-label col-form-label-lg">Awards - Premios</label>
             <div class="col-sm-10">
-                <input type="number" name="awards" id="" class="form-control form-control-lg" placeholder="" value="<%=movies.awards%>">
+                <input type="number" name="awards" id="" class="form-control form-control-lg" placeholder="" value="<%=movie.awards%>">
             </div>
         </div>
         <br>
         <!-- <div class="form-group row text-center">
-            <label for="idiomaId" class="col-sm-2 col-form-label col-form-label-lg">Release Date - Fecha de Estreno</label>
-            <div class="col-sm-10">
-                <input type="number" name="releaseDate" id="" class="form-control form-control-lg" placeholder="" value="<%=movies.releaseDate%>">
-            </div>
-        </div> -->
-        <!-- <br>
-        <div class="form-group row text-center">
-            <label for="precio" class="col-sm-2 col-form-label col-form-label-lg">Length - Duracion</label>
-            <div class="col-sm-10">
-                <input type="number" name="lenght" id="" class="form-control form-control-lg" placeholder="" value="<%=movies.length%>">
-            </div>
-        </div> -->
-        <div class="form-group row text-center">
             <label for="precio" class="col-sm-2 col-form-label col-form-label-lg">ID de Genero</label>
             <div class="col-sm-10">
-                <input type="number" name="genre_id" id="genre_id" class="form-control form-control-lg" placeholder="" value="<%=movies.genre_id%>">
+                <input type="number" name="genre_id" id="genre_id" class="form-control form-control-lg" placeholder="" value="">
             </div>
+        </div> -->
+        <div>
+            <label for="categoryId" class="form-label">ID de Genero:</label>
+            <select name="brandId" id="brandId" class="form-input">
+                <option value="">Elegí</option>
+                <% genre.forEach(function(genre) {  %>  
+                <option value="<%=genre.id%>"> <%=genre.name%> </option>
+                <%})%>  
+            </select>
         </div>
         <br>
         <input type="submit" id="Crear cuenta" name="submit" placeholder="" class="form-Cuenta btn btn-danger mb-5" value="Cargar">

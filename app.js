@@ -26,7 +26,6 @@ app.listen(3000, function (){
 
 app.use('/', indexRouter);
 app.use('/register', registerRouter);
-app.use('/login', loginRouter);
 app.use('/detallePeli', detallePeliRouter);
 app.use('/crudPeliculas', crudPeliculasRouter);
 app.use('/editarPeliculas', editarPeliculasRouter);

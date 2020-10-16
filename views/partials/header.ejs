@@ -1,29 +1,13 @@
-<% if (locals.user) { %>
-    <nav class="menu">
-        <!-- <ul class="">
-    
-            <li class=""><button type="button" class=""><a href="/userProfile"> Hola <%=locals.user.nombre%>!</a></button>
-            </li>
-        </ul> -->
-        <div class="btn-group">
-        <form action="/login/logout" method="POST" class="p-2">
-            <button  type="submit">
-                Cerrar sesión <i class="fas fa-sign-in-alt"></i>
-            </button>
-        
-        </form>
-        <div class="p-2">
-            <button type="button">Hola <%=locals.user.nombre%>!</a></button>
-        </div>
-        </div>
-        <% } else {%>
-        <nav class="menu">
-            <div class="btn-group">
-                <div class="p-2">
-                    <button type="button" class=""><a href="/login" class="text-decoration-none">Ingresá!</a>
-                </div>
-            </div>
-    
-    
-            <% }%>
-        </nav>
+
+ <div class="log">
+    <% if(typeof user == 'undefined') { %>
+    <a class="navLink" href="/register/login">Iniciar Sesion</a>
+    <a class="navLink" href="/register">Registrate</a>
+    <% } else { %>
+   <h1>HOLA <%= user.email %></h1>
+    <form action="/register/logout" method="POST" class="p-2">
+        <button  type="submit">
+            Cerrar sesión <i class="fas fa-sign-in-alt"></i>
+        </button>
+    <% } %>
+</div>
