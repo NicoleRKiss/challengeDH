@@ -62,8 +62,7 @@ module.exports = {
       .withMessage("Debe agregar al menos 1 producto al carrito"),
   ],
   password: [
-    // Validador
-    // Preguntar si el primer campo coincide con la contraseña de la DB
+
     body("currentPassword")
       .notEmpty()
       .withMessage("Ingrese su contraseña actual para cambiarla")
@@ -77,7 +76,7 @@ module.exports = {
           })
       }),
 
-    body("newPassword") // Deberiamos ver otra manera de crear una dependencia entre el campo newP con el campo currentP
+    body("newPassword") 
       .notEmpty()
       .withMessage('Ingrese su nueva contraseña')
       .bail()
@@ -91,15 +90,6 @@ module.exports = {
       .custom((value, { req }) => req.body.newPassword === value)
       .withMessage("Las contraseñas no coinciden")
       
-
-
-
-    // Preguntar si las contraseñas nuevas coinciden
-
-
-    // Controlador
-    // Hasheas la password
-    // Update de tu usuario donde coincida el email con el que está en sesión. Updateas la password
 
   ],
 

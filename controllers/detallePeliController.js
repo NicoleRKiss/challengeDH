@@ -17,32 +17,7 @@ const detallePeliController = {
                         });
            
     
-}) .catch(e => console.log(e));
-        // db.Movie.findByPk(req.params.id)
-        //     .then (Movie => {
-        //         db.Genre.findAll({
-        //           include: [{association:'generos'}]
-        //         }).then((Genre)=> {
-        //             return res.render('detallePeli',{
-        //                 Movie,
-        //                 Genre
-        //             });
-
-        //         }).catch(e => console.log(e));
-                
-        //     }).catch(e => console.log(e));
-
-        // db.Movie.findByPk(req.params.id, {include:[db.Genre]})
-        //         .then(function(Movie){
-             
-        //                     return res.render('detallePeli', {
-        //                         Movie: Movie,
-        //                         Genre: Genre,
-                              
-        //                     });
-                    
-        //         })
-        //         .catch(e => console.log(e));
+    }) .catch(e => console.log(e));
         
     },
     delete: (req, res) => {

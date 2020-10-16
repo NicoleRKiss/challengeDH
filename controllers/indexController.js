@@ -16,23 +16,6 @@ const indexController = {
                 console.log(error);
             })
     }
-    // index: (req, res) => {
-    //     db.Movies.findAll({
-    //             //  include: ['category']
-    //             include: {
-    //                 all: true,
-    //                 nested: true
-    //             }
-    //         })
-    //         .then(function (results) {
-    //             const MoviesAll = results;
-    //             return res.render("index", {
-    //                 data: MoviesAll
-    //             })
-    //         })
-    //         .catch(e => console.log(e))
-
-    //}
 }
 
 
